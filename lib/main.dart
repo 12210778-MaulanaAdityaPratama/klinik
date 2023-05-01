@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pendataanwarga/providers/berita_panel_provider.dart';
-import 'package:pendataanwarga/views/views/login_views.dart';
+import 'package:pendataanwarga/providers/peta_provider.dart';
+import 'package:pendataanwarga/views/login_views.dart';
 import 'package:pendataanwarga/providers/dashboard_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +12,8 @@ main(List<String> args) {
     },
     providers: [
       ChangeNotifierProvider(create: (c) => DashboardProvider()),
-      ChangeNotifierProvider(create: (c) => BeritaPanelProvider())
+      ChangeNotifierProvider(create: (c) => BeritaPanelProvider()),
+      ChangeNotifierProvider(create: (c) => PetaProvider()),
     ],
   ));
 }

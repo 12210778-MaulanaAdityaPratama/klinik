@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pendataanwarga/views/views/dashboard_view.dart';
+import 'package:pendataanwarga/views/dashboard_view.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
