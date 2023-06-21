@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pendataanwarga/views/dashboard_view.dart';
+import 'package:sismdlb/views/dashboard_view.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class LoginView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 135, bottom: 50),
             child: Text(
-              'Aplikasi\nPendataan Warga',
+              'Aplikasi\nSurat Menyurat',
               style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),

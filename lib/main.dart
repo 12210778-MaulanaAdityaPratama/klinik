@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pendataanwarga/providers/berita_panel_provider.dart';
-import 'package:pendataanwarga/providers/peta_provider.dart';
-import 'package:pendataanwarga/views/login_views.dart';
-import 'package:pendataanwarga/providers/dashboard_provider.dart';
+import 'package:sismdlb/providers/berita_panel_provider.dart';
+import 'package:sismdlb/providers/peta_provider.dart';
+import 'package:sismdlb/views/login_views.dart';
+import 'package:sismdlb/providers/dashboard_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:sismdlb/views/crud_view.dart';
 
 main(List<String> args) {
   runApp(MultiProvider(

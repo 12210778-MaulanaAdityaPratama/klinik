@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pendataanwarga/providers/peta_provider.dart';
+import 'package:sismdlb/providers/peta_provider.dart';
 import 'package:provider/provider.dart';
 
 class Petaview extends StatelessWidget {
@@ -33,7 +33,7 @@ class Petaview extends StatelessWidget {
                     builder: (context) {
                       return Icon(
                         FontAwesomeIcons.mapPin,
-                        color: Color.fromARGB(255, 13, 193, 206),
+                        color: Color.fromARGB(255, 247, 12, 4),
                         size: 40,
                       );
                     },

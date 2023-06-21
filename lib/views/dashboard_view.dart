@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pendataanwarga/providers/dashboard_provider.dart';
-import 'package:pendataanwarga/views/berita.dart';
-import 'package:pendataanwarga/views/peta_view.dart';
+import 'package:sismdlb/providers/dashboard_provider.dart';
+import 'package:sismdlb/views/berita.dart';
+import 'package:sismdlb/views/peta_view.dart';
 import 'package:provider/provider.dart';
+import 'package:sismdlb/views/crud_view.dart';
 
 class Dashboardview extends StatelessWidget {
   @override
@@ -26,7 +27,7 @@ class DashboardPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset('assets/background.png'),
+        Image.asset('assets/bg.jpg'),
         informasi_pengguna(),
         SingleChildScrollView(
             child: Padding(
@@ -44,36 +45,24 @@ class DashboardPanel extends StatelessWidget {
                         SizedBox(
                           height: 50,
                         ),
-                        LabelBerita(),
-                        ListBerita(),
                         SizedBox(
                           height: 40,
                         ),
                         Wrap(
                           children: [
-                            TombolMenu(
-                                image: Image.asset(
-                              'assets/icon1.png',
-                              width: 60,
-                            )),
                             InkWell(
                               onTap: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (c) => Petaview()));
+                                        builder: (c) => HomePage()));
                               },
                               child: TombolMenu(
                                   image: Image.asset(
-                                'assets/icon2.png',
+                                'assets/surat.png',
                                 width: 60,
                               )),
                             ),
-                            TombolMenu(
-                                image: Image.asset(
-                              'assets/icon3.png',
-                              width: 60,
-                            )),
                           ],
                         ),
                       ],
@@ -98,62 +87,6 @@ class TombolMenu extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(18.0),
         child: image ?? SizedBox(),
-      ),
-    );
-  }
-}
-
-class LabelBerita extends StatelessWidget {
-  const LabelBerita({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15),
-      child: Align(alignment: Alignment.centerLeft, child: Text('Berita')),
-    );
-  }
-}
-
-class ListBerita extends StatelessWidget {
-  const ListBerita({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 120,
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: Image.asset(
-                'assets/berita1.png',
-                height: 120,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: Image.asset(
-                'assets/berita2.png',
-                height: 120,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: Image.asset(
-                'assets/berita3.png',
-                height: 120,
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
@@ -184,7 +117,7 @@ class informasi_pengguna extends StatelessWidget {
           ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image.asset(
-                'assets/foto.png',
+                'assets/computer.png',
                 width: 60,
               )),
           SizedBox(
@@ -196,14 +129,14 @@ class informasi_pengguna extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hai, udin',
+                  'Hai, Admin',
                   style: TextStyle(
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
                 Text(
-                  'udinpetot@gmail.com',
+                  'admin@gmail.com',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,

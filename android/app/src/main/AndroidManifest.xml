@@ -7,7 +7,7 @@
     
     
    <application
-        android:label="pendataanwarga"
+        android:label="sismdlb"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

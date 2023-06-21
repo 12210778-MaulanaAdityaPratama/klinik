@@ -1,4 +1,4 @@
-name: pendataanwarga
+name: sismdlb
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -36,6 +36,7 @@ dependencies:
   geolocator: ^9.0.2
   google_fonts: ^4.0.3
   http: ^0.13.5
+  intl: ^0.18.1
   provider: ^6.0.5
 
 dev_dependencies:

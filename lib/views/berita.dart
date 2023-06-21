@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pendataanwarga/providers/berita_panel_provider.dart';
+import 'package:sismdlb/providers/berita_panel_provider.dart';
 import 'package:provider/provider.dart';
 
 class Berita extends StatelessWidget {
