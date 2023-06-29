@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sismdlb/providers/dashboard_provider.dart';
 import 'package:sismdlb/views/berita.dart';
-import 'package:sismdlb/views/peta_view.dart';
+import 'package:sismdlb/views/login_views.dart';
 import 'package:provider/provider.dart';
-import 'package:sismdlb/views/crud_view.dart';
+import 'package:sismdlb/views/obat.dart';
+import 'package:sismdlb/views/dokter.dart';
+import 'package:sismdlb/views/pasien.dart';
+import 'package:sismdlb/views/berobat.dart';
 
 class Dashboardview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final panels = [DashboardPanel(), Berita(), SizedBox()];
+    final panels = [DashboardPanel(), BerobatPage(), LoginView()];
     return Consumer<DashboardProvider>(builder: (context, provider, widget) {
       return Scaffold(
           bottomNavigationBar: navigatorbawah(),
@@ -27,7 +30,7 @@ class DashboardPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset('assets/bg.jpg'),
+        Image.asset('assets/yellow.png'),
         informasi_pengguna(),
         SingleChildScrollView(
             child: Padding(
@@ -55,13 +58,42 @@ class DashboardPanel extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (c) => HomePage()));
+                                        builder: (c) => ObatPage()));
                               },
                               child: TombolMenu(
-                                  image: Image.asset(
-                                'assets/surat.png',
-                                width: 60,
-                              )),
+                                image: Image.asset(
+                                  'assets/obat.png',
+                                  width: 60,
+                                ),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (c) => DokterPage()));
+                              },
+                              child: TombolMenu(
+                                image: Image.asset(
+                                  'assets/doctor.png',
+                                  width: 60,
+                                ),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (c) => PasienPage()));
+                              },
+                              child: TombolMenu(
+                                image: Image.asset(
+                                  'assets/pasien.png',
+                                  width: 60,
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -117,7 +149,7 @@ class informasi_pengguna extends StatelessWidget {
           ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image.asset(
-                'assets/computer.png',
+                'assets/user.png',
                 width: 60,
               )),
           SizedBox(
@@ -129,7 +161,7 @@ class informasi_pengguna extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hai, Admin',
+                  'Hai, admin',
                   style: TextStyle(
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
@@ -145,10 +177,6 @@ class informasi_pengguna extends StatelessWidget {
               ],
             ),
           ),
-          Image.asset(
-            'assets/bell.png',
-            width: 40,
-          )
         ],
       ),
     );
@@ -167,16 +195,29 @@ class home extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: p.indexTombol,
       onTap: (value) {
-        p.saatdiklik(value);
+        if (value == 2) {
+          // Jika tombol logout diklik
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => LoginView()),
+            (Route<dynamic> route) => false,
+          );
+        } else {
+          p.saatdiklik(value);
+        }
       },
       items: [
         BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.house), label: 'Home'),
         BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.newspaper), label: 'Berita'),
+            icon: Icon(FontAwesomeIcons.hospital), label: 'Berobat'),
         BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.gear), label: 'Pengaturan')
+            icon: Icon(FontAwesomeIcons.gear), label: 'Logout')
       ],
     );
   }
+}
+
+void main() {
+  runApp(Dashboardview());
 }

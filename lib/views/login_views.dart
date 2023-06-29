@@ -8,12 +8,13 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Column(
+      body: ListView(
+        // Ganti Column dengan ListView
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 135, bottom: 50),
             child: Text(
-              'Aplikasi\nSurat Menyurat',
+              'Aplikasi\nKlinik Anggrek',
               style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
@@ -21,10 +22,11 @@ class LoginView extends StatelessWidget {
           Stack(
             children: [
               Container(
-                height: 380,
+                height: 600,
                 child: Card(
-                  margin: EdgeInsets.only(top: 50, left: 20, right: 20),
-                  color: Colors.brown[200],
+                  margin:
+                      EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 25),
+                  color: Color.fromARGB(255, 110, 12, 223),
                   child: Column(
                     children: [
                       SizedBox(
@@ -69,10 +71,11 @@ class LoginView extends StatelessWidget {
                 ),
               ),
               Center(
-                  child: Image.asset(
-                'assets/logo.png',
-                width: 150,
-              )),
+                child: Image.asset(
+                  'assets/login.png',
+                  width: 150,
+                ),
+              ),
             ],
           ),
         ],
